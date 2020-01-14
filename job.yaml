@@ -7,7 +7,12 @@ spec:
     spec:
       containers:
       - name: kube-hunter
-        image: aquasec/kube-hunter 
+        image: aquasec/kube-hunter
+        resources:
+          limits:
+            memory: "200Mi"
+          requests:
+            memory: "100Mi"
         command: ["python", "kube-hunter.py"]
         args: ["--pod"]
       restartPolicy: Never
